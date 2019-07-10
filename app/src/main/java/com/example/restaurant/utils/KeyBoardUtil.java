@@ -24,7 +24,7 @@ public class KeyBoardUtil {
          * @Description
          * @Date 20:09 2019/6/10
          * @Param * @param activity
-         * @param ev : Activity上分发事件
+         * @param ev : Activity上分发的事件
          * @param excludeViews
          * @return void
          **/

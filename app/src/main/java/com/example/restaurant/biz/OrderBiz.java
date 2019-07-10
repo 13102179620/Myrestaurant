@@ -31,7 +31,7 @@ public class OrderBiz {
             sb.append(p.getId() + "_" + prductMap.get(p));
             sb.append("|");
         }
-        // TODO: 2019/7/2 bug 
+
         sb.deleteCharAt(sb.length()-1);
 
 

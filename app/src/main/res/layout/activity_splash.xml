@@ -47,8 +47,7 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:src="@drawable/splash_bottom" />
+        android:layout_gravity="center" />
 
 
 </FrameLayout>

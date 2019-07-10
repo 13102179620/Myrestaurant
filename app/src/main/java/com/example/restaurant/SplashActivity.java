@@ -19,6 +19,7 @@ public class SplashActivity extends AppCompatActivity {
     //使用handler实现3s后加载login
     private Handler mHandler = new Handler();
 
+    //开启新线程执行 toLoginActivity
     private Runnable mRunnable = new Runnable() {
         @Override
         public void run() {
@@ -36,6 +37,7 @@ public class SplashActivity extends AppCompatActivity {
 
         initEvent();
 
+        //三秒后执行mRunable
         mHandler.postDelayed(mRunnable, 3000);
 
 

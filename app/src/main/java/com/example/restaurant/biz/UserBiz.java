@@ -7,6 +7,7 @@ import com.zhy.http.okhttp.OkHttpUtils;
 
 public class UserBiz {
 
+    //提交登陆
     public void login(String username , String password , CommonCallback<User> commonCallback){
 
         OkHttpUtils
@@ -19,6 +20,7 @@ public class UserBiz {
 
     }
 
+    //提交注册信息
     public void regist(String username , String password , CommonCallback<User> commonCallback){
         OkHttpUtils
                 .post().url(Config.baseUrl + "user_register")
@@ -28,6 +30,7 @@ public class UserBiz {
                 .build()
                 .execute(commonCallback);
     }
+
 
     public void onDestroy(){
         OkHttpUtils.getInstance().cancelTag(this);

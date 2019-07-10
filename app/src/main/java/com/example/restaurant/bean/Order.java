@@ -11,6 +11,7 @@ import java.util.Map;
 
 public class Order implements Serializable {
 
+    //内部类 用于gson生成对象
     public static class ProductInO implements Serializable {
         public Product product;
         public int count;

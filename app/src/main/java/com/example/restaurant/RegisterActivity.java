@@ -51,6 +51,8 @@ public class RegisterActivity extends BaseActivity {
         initEvent();
     }
 
+
+    //点击屏幕收起键盘
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         KeyBoardUtil.hideInputWhenTouchOtherView(this, ev, null);
@@ -90,6 +92,7 @@ public class RegisterActivity extends BaseActivity {
                     @Override
                     public void onError(Exception e) {
                         stopLoadingProgress();
+                        //打印错误信息
                         T.showToast(e.getMessage());
                         Log.d(TAG, "onError: " + e.getMessage());
                     }

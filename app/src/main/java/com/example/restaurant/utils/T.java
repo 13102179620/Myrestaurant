@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 
 public class T {
+    // Toast 辅助类
 
     private static Toast toast;
 

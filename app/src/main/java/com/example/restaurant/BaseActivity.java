@@ -12,6 +12,14 @@ import android.util.Log;
 import android.view.View;
 import android.support.v7.widget.Toolbar;
 
+
+/**
+ * @ClassName: BaseActivity
+ * @Author SYT
+ * @Description 基类Activity ， 包括统一的toolbar ， 统一管理加载dialog
+ **/
+
+
 public class BaseActivity extends AppCompatActivity {
 
     // TODO: 2019/7/2 修改弹窗样式
@@ -35,6 +43,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
 
+    //管理toolbar样式
     public void setUpToolBar() {
         Toolbar idToolbar = findViewById(R.id.id_toolbar);
         setSupportActionBar(idToolbar);
@@ -51,20 +60,17 @@ public class BaseActivity extends AppCompatActivity {
 
 
 
-    protected void stopLoadingProgress() {
-        if (mLoadingDialog != null && mLoadingDialog.isShowing()){
-            mLoadingDialog.dismiss();
-        }
-    }
-
-
+    //管理loadingDialog的启停
     protected void startLoadingProgress() {
         mLoadingDialog.show();
     }
 
 
-
-
+    protected void stopLoadingProgress() {
+        if (mLoadingDialog != null && mLoadingDialog.isShowing()){
+            mLoadingDialog.dismiss();
+        }
+    }
 
 
 
@@ -75,6 +81,9 @@ public class BaseActivity extends AppCompatActivity {
         mLoadingDialog = null;
     }
 
+
+
+    // 在所有的activity检测是否登录 ， 没有的话就跳转
     protected void toLoginActivity(){
         Intent intent = new Intent(this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
