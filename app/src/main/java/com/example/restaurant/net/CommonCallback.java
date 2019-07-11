@@ -13,16 +13,24 @@ import org.json.JSONObject;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
+
+/**
+ * @ClassName: CommonCallback
+ * @Author SYT
+ * @Description 返回泛型的通用callback类 ， 继承自OkhttpUtils.StringCallBack
+ * @Date 17:54 2019/7/10
+ **/
+
+
 public abstract class CommonCallback<T> extends StringCallback {
 
     Type mType;
 
 
-    //获取Type类型
+    //反射获取泛型的具体类型
     public CommonCallback() {
         Class<? extends CommonCallback> clazz = getClass();
         Type genericSuperclass = clazz.getGenericSuperclass();
-
         if (genericSuperclass instanceof Class) {
             throw new RuntimeException("missing type params");
         }
@@ -50,7 +58,6 @@ public abstract class CommonCallback<T> extends StringCallback {
             if (resultCode == 1) {
                 String data = resp.getString("data");
                 Gson gson = new Gson();
-                T user = (T) GsonUtil.getGson().fromJson(data, mType);
                 onSuccess((T) GsonUtil.getGson().fromJson(data, mType));
 
                 //请求失败
@@ -66,7 +73,9 @@ public abstract class CommonCallback<T> extends StringCallback {
 
     }
 
+    //请求失败的回调
     public abstract void onError(Exception e);
 
+    //请求成功的回调
     public abstract void onSuccess(T response);
 }
